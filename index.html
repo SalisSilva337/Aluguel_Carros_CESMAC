@@ -10,6 +10,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="scripts/index.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -17,13 +18,14 @@
         <img class="logo" src="imgs/misc/logoProjetoDef.png" alt="" />
       </section>
       <nav class="navBarHeader">
-        <button>Home</button>
-        <button>About</button>
-        <button>Contact</button>
+        <button id="homeButton">Home</button>
+        <button id="rentCarButton">Rent a Car</button>
+        <button id="aboutButton">About</button>
+        <button id="contactButton">Contact</button>
       </nav>
     </header>
     <main>
-      <iframe src="iframes/home.html" frameborder="0"></iframe>
+      <iframe class="iframe" src="iframes/home.html" frameborder="0"></iframe>
     </main>
   </body>
 </html>
