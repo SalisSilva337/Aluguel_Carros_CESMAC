@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #121315;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+iframe {
+  width: 100%;
+  height: 100vh;
+}
+.headerLogoSection {
+  float: left;
+}
+.logo {
+  width: 200px;
+  height: 200px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+}
+.navBarHeader {
+  display: flex;
+  justify-content: space-evenly;
+  float: right;
+  width: 100%;
+}
+.navBarHeader button {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  font-size: 20px;
+  transition: 0.3s;
+}
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+body {
+  overflow: hidden;
+}
