@@ -1,0 +1,63 @@
+package com.example.aluguelcarros.application.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Carro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String modelo;
+    private int ano;
+    private double precoPorDia;
+    private boolean disponivel;
+
+    public Carro() {}
+
+    public Carro(String modelo, int ano, double precoPorDia, boolean disponivel) {
+        this.modelo = modelo;
+        this.ano = ano;
+        this.precoPorDia = precoPorDia;
+        this.disponivel = disponivel;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public double getPrecoPorDia() {
+        return precoPorDia;
+    }
+
+    public void setPrecoPorDia(double precoPorDia) {
+        this.precoPorDia = precoPorDia;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+}
