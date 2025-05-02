@@ -28,4 +28,5 @@ public class UsuarioController {
     public Usuario buscarUsuario(@PathVariable Long id) {
         return usuarioService.buscarPorId(id);
     }
+
 }

@@ -14,7 +14,7 @@ public class Carro {
     private String modelo;
     private int ano;
     private double precoPorDia;
-    private boolean disponivel;
+    private boolean disponivel = true;
 
     public Carro() {}
 

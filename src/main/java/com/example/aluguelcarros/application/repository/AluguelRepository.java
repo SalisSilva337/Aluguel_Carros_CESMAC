@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface AluguelRepository extends JpaRepository<Aluguel, Long> {
     List<Aluguel> findByUsuario(Usuario usuario);
+    List<Aluguel> findByUsuarioId(Long usuarioId);
 }
