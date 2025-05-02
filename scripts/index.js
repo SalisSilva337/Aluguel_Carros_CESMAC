@@ -3,7 +3,7 @@ let homeButton = document.querySelector("#homeButton");
 let rentCarButton = document.querySelector("#rentCarButton");
 let aboutButton = document.querySelector("#aboutButton");
 let contactButton = document.querySelector("#contactButton");
-
+let navBarButtons = document.querySelectorAll(".navBarButtons");
 //Change Iframe Source
 homeButton.addEventListener("click", () => {
   iframe.src = "../iframes/home.html";
@@ -16,4 +16,15 @@ aboutButton.addEventListener("click", () => {
 });
 contactButton.addEventListener("click", () => {
   iframe.src = "../iframes/contact.html";
+});
+
+//Select bottomBorder in each button
+navBarButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    navBarButtons.forEach((btn) => {
+      btn.style.borderBottom = "none";
+    });
+
+    button.style.borderBottom = "2px solid white";
+  });
 });

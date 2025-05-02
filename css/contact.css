@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #121315;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 40px;
+}
+.contactSection {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+}
+.contactSection img {
+  width: 100px;
+  height: 100px;
+}
+.contactSection div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.contactSection div a {
+  font-size: 20px;
+  transition: 0.3s;
+}
+.contactSection div a:hover {
+  color: rgb(66, 66, 150);
+}
