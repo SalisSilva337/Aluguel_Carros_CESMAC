@@ -50,6 +50,7 @@
   border-radius: 5px;
   height: 30px;
   padding: 5px;
+  background-color: transparent;
 }
 .loginInputsDiv button {
   padding: 10px;
@@ -57,6 +58,7 @@
   width: 100px;
   border: 1px solid white;
   transition: 0.3s;
+  background-color: transparent;
 }
 .loginInputsDiv button:hover {
   opacity: 0.7;

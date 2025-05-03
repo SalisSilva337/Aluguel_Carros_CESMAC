@@ -87,8 +87,11 @@ main {
   display: flex;
   justify-content: center;
 }
+.mainCarBookNow {
+  width: 1000px;
+}
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1820px) {
   .vehicleModelsMain {
     flex-wrap: wrap;
   }
