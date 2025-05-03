@@ -10,11 +10,14 @@
 body {
   padding: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 h1 {
   font-size: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .contactSection {
   border: 1px solid;
@@ -44,4 +47,10 @@ h1 {
 }
 .contactSection div a:hover {
   color: rgb(66, 66, 150);
+}
+
+@media only screen and (max-width: 600px) {
+  .contactSection {
+    width: 90%;
+  }
 }

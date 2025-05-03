@@ -52,3 +52,10 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #ff0000;
 }
+
+@media only screen and (max-width: 450px) {
+  .navBarHeader {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
