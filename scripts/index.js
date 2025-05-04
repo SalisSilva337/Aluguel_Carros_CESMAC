@@ -32,6 +32,7 @@ navBarButtons.forEach((button) => {
   });
 });
 
+//Show sidebar
 profileButton.addEventListener("click", () => {
   if (sideBar.style.display == "flex" && sideBar.style.height == "100vh") {
     sideBar.style.display = "none";
