@@ -14,7 +14,7 @@ public class Carro {
     private String modelo;
     private int ano;
     private double precoPorDia;
-    private boolean disponivel = true;
+    private Boolean disponivel = true;
 
     public Carro() {}
 
@@ -53,8 +53,8 @@ public class Carro {
         this.precoPorDia = precoPorDia;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
+    public Boolean getDisponivel() {
+        return disponivel != null ? disponivel : true;
     }
 
     public void setDisponivel(boolean disponivel) {

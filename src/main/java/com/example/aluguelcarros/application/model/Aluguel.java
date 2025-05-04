@@ -19,6 +19,7 @@ public class Aluguel {
     private Usuario usuario;
 
     @ManyToOne
+    @JoinColumn(name = "carro_id")
     private Carro carro;
 
     public Long getId() { return id; }

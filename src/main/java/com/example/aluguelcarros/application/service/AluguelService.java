@@ -18,7 +18,7 @@ import java.util.List;
 public class AluguelService {
 
     @Autowired
-    private AluguelRepository aluguelRepository;
+    private final AluguelRepository aluguelRepository;
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -30,11 +30,15 @@ public class AluguelService {
         return aluguelRepository.findAll();
     }
 
+    public AluguelService(AluguelRepository aluguelRepository) {
+        this.aluguelRepository = aluguelRepository;
+    }
+
     public Aluguel alugarCarro(Long carroId, Long usuarioId, LocalDate dataInicio, LocalDate dataFim) {
         Carro carro = carroRepository.findById(carroId)
                 .orElseThrow(() -> new RuntimeException("Carro não encontrado"));
     
-        if (!carro.isDisponivel()) {
+        if (!carro.getDisponivel()) {
             throw new RuntimeException("Carro indisponível");
         }
     
@@ -75,6 +79,10 @@ public class AluguelService {
         carroRepository.save(carro);
 
         aluguelRepository.deleteById(id);
+    }
+
+    public List<Aluguel> findByUsuarioId(Long usuarioId) {
+        return aluguelRepository.findByUsuarioId(usuarioId);
     }
 
     public List<Carro> listarCarrosDisponiveis() {
