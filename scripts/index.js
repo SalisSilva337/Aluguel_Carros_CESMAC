@@ -4,6 +4,7 @@ let rentCarButton = document.querySelector("#rentCarButton");
 let aboutButton = document.querySelector("#aboutButton");
 let contactButton = document.querySelector("#contactButton");
 let profileButton = document.querySelector("#profileButton");
+let closeButton = document.querySelector("#closeButton");
 let sideBar = document.querySelector(".sideBar");
 let navBarButtons = document.querySelectorAll(".navBarButtons");
 
@@ -41,4 +42,8 @@ profileButton.addEventListener("click", () => {
     sideBar.style.display = "flex";
     sideBar.style.height = "100vh";
   }
+});
+closeButton.addEventListener("click", () => {
+  sideBar.style.display = "none";
+  sideBar.style.height = "0vh";
 });
