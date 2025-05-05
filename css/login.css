@@ -55,6 +55,9 @@
 #buttonLogin:disabled {
   background-color: rgb(49, 46, 46);
 }
+#buttonLogin {
+  width: 150px;
+}
 .loginInputsDiv button {
   padding: 10px;
   border-radius: 10px;
