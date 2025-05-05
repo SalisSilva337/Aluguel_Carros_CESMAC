@@ -1,6 +1,10 @@
 let modal = document.querySelector(".modal");
 let registerCarModalButton = document.querySelector(".registerCarModalButton");
 let registerCarButton = document.querySelector(".registerCarButton");
+let inputCarName = document.querySelector(".inputCarName");
+let inputCarYear = document.querySelector(".inputCarYear");
+let inputCarPrice = document.querySelector(".inputCarPrice");
+
 //open modal
 registerCarButton.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -11,29 +15,24 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
-registerCarModalButton.addEventListener("click", () => {
+registerCarModalButton.addEventListener("click", (event) => {
   event.preventDefault();
 
   if (
-    inputNomeJogo.value.trim() === "" ||
-    inputDescricaoJogo.value.trim() === "" ||
-    inputCapaJogo.value.trim() === "" ||
-    inputPosterJogo.value.trim() === "" ||
-    inputPrecoJogo.value.trim() === "" ||
-    inputPlataformaJogo.value.trim() === "" ||
-    inputScreenshot1Jogo.value.trim() === "" ||
-    inputScreenshot2Jogo.value.trim() === ""
+    inputCarName.value.trim() === "" ||
+    inputCarYear.value.trim() === "" ||
+    inputCarPrice.value.trim() === ""
   ) {
     alert("Por favor, preencha todos os campos antes de salvar.");
     return;
   }
 
   let addNewCarJSON = {
-    modelo: inputNomeJogo.value,
-    ano: inputDescricaoJogo.value,
-    precoPorDia: inputCapaJogo.value,
+    modelo: inputCarName.value,
+    ano: inputCarYear.value,
+    precoPorDia: inputCarPrice.value,
     disponivel: true,
-    fotoCarro: inputPrecoJogo.value,
+    fotoCarro: inputImgCar.value,
   };
 
   console.log(JSON.stringify(addNewCarJSON));
@@ -46,8 +45,8 @@ registerCarModalButton.addEventListener("click", () => {
     body: JSON.stringify(addNewCarJSON),
   };
 
-  fetch("http://localhost:8080/giggagames/v1", optionsPOST)
-    .then((response) => response)
+  fetch("http://localhost:8080/carros", optionsPOST)
+    .then((response) => response.json())
     .then((data) => {
       console.log(data);
     });
