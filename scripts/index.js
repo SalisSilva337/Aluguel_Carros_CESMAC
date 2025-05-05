@@ -47,3 +47,13 @@ closeButton.addEventListener("click", () => {
   sideBar.style.display = "none";
   sideBar.style.height = "0vh";
 });
+
+let options = [(method = "GET")];
+fetch("carros/todoscarros", options)
+  .then((response) => response.json())
+  .then((response) => {
+    for (let index = 0; index < response.length; index++) {
+      response.nome;
+      response.dataInicial;
+    }
+  });
