@@ -19,7 +19,7 @@ public class UsuarioService {
     private PasswordEncoder passwordEncoder;
 
     public Usuario criarUsuario(Usuario usuario) {
-        //System.out.println("Senha recebida: " + usuario.getSenha()); // Debug
+        //System.out.println("Senha recebida: " + usuario.getSenha()); // vai que eu preciso debuggar denovo ne
 
         if (usuarioRepository.existsByNome(usuario.getNome())) {
             throw new DataIntegrityViolationException("Usuário já cadastrado");

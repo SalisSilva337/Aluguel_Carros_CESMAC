@@ -1,5 +1,6 @@
 package com.example.aluguelcarros.application.controller;
 
+import com.example.aluguelcarros.application.config.JwtTokenService;
 import com.example.aluguelcarros.application.dto.UsuarioDTO;
 import com.example.aluguelcarros.application.model.Usuario;
 import com.example.aluguelcarros.application.model.Usuario.Role;
@@ -30,6 +31,9 @@ public class UsuarioController {
 
     private UsuarioRepository usuarioRepository;
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtTokenService jwtTokenService;
 
     public UsuarioController(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
@@ -77,8 +81,20 @@ public class UsuarioController {
     public ResponseEntity<?> login(@RequestBody Usuario usuario) {
         try {
             Usuario user = usuarioService.login(usuario.getNome(), usuario.getSenha());
-            UsuarioDTO response = new UsuarioDTO(user); // Converte Usuario em DTO
-            return ResponseEntity.ok(response);
+            
+            // Gera o token JWT
+            String token = jwtTokenService.generateToken(
+                user.getNome(), 
+                user.getRole().name(),
+                user.getId()
+            );
+            
+            // Retorna o token + DTO do usuário
+            return ResponseEntity.ok(Map.of(
+                "token", token,
+                "usuario", new UsuarioDTO(user)
+            ));
+            
         } catch (RuntimeException e) {
             return ResponseEntity.status(401).body(e.getMessage());
         }

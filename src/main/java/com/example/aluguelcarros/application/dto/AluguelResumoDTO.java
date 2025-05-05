@@ -10,6 +10,7 @@ public class AluguelResumoDTO {
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private Double valorTotal;
+    private UsuarioDTO usuario;
     private CarroResumoDTO carro;
 
     public AluguelResumoDTO(Aluguel aluguel) {
@@ -17,6 +18,7 @@ public class AluguelResumoDTO {
         this.dataInicio = aluguel.getDataInicio();
         this.dataFim = aluguel.getDataFim();
         this.valorTotal = aluguel.getValorTotal();
+        this.usuario = new UsuarioDTO(aluguel.getUsuario());
         this.carro = new CarroResumoDTO(aluguel.getCarro());
     }
 
@@ -34,6 +36,10 @@ public class AluguelResumoDTO {
 
     public Double getValorTotal() {
         return valorTotal;
+    }
+
+    public UsuarioDTO getUsuario() {
+        return usuario;
     }
 
     public CarroResumoDTO getCarro() {

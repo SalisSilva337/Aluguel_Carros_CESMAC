@@ -13,15 +13,9 @@ import java.util.UUID;
 @Service
 public class FileStorageService {
 
-    @Value("${app.upload.dir}") // Pasta configurada no application.properties
+    @Value("${app.upload.dir}") 
     private String uploadDir;
 
-    /**
-     * Salva um arquivo no diretório de uploads e retorna o nome gerado.
-     * @param file Arquivo enviado (MultipartFile)
-     * @return Nome único do arquivo salvo (ex: "a1b2c3d4-foto.jpg")
-     * @throws IOException Se houver erro ao salvar o arquivo.
-     */
     public String saveFile(MultipartFile file) throws IOException {
         if (file.isEmpty()) {
             throw new IllegalArgumentException("Arquivo vazio.");
@@ -43,9 +37,6 @@ public class FileStorageService {
         return fileName;
     }
 
-    /**
-     * (OPCIONAL) Método para deletar um arquivo do diretório.
-     */
     public void deleteFile(String fileName) throws IOException {
         Path filePath = Paths.get(uploadDir).resolve(fileName);
         Files.deleteIfExists(filePath);

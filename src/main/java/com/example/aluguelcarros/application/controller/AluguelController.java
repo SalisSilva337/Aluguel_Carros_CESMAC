@@ -111,19 +111,18 @@ public class AluguelController {
     }
     
     @GetMapping("/meus-alugueis")
-    public ResponseEntity<List<Aluguel>> getMeusAlugueis(@AuthenticationPrincipal UserDetails userDetails) {
-        
-        // 1. Obter o nome do usuário autenticado
+    public ResponseEntity<List<AluguelResumoDTO>> getMeusAlugueis(@AuthenticationPrincipal UserDetails userDetails) {
         String username = userDetails.getUsername();
-        
-        // 2. Buscar o usuário no banco
         Usuario usuario = usuarioRepository.findByNome(username)
             .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + username));
         
-        // 3. Buscar aluguéis (retorna lista vazia se não existirem)
         List<Aluguel> alugueis = aluguelRepository.findByUsuarioId(usuario.getId());
         
-        return ResponseEntity.ok(alugueis);
+        List<AluguelResumoDTO> response = alugueis.stream()
+            .map(AluguelResumoDTO::new)
+            .toList();
+        
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
@@ -186,11 +185,9 @@ public class AluguelController {
             @PathVariable Long id,
             @AuthenticationPrincipal UserDetails userDetails) {
         
-        // 1. Buscar usuário logado
         Usuario usuarioLogado = usuarioRepository.findByNome(userDetails.getUsername())
             .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
     
-        // 2. Verificar se é ADMIN ou está buscando seus próprios aluguéis
         if (!usuarioLogado.getId().equals(id)) {
             boolean isAdmin = userDetails.getAuthorities().stream()
                 .anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"));
@@ -201,9 +198,12 @@ public class AluguelController {
             }
         }
     
-        // 3. Buscar aluguéis
         List<Aluguel> alugueis = aluguelRepository.findByUsuarioId(id);
         
-        return ResponseEntity.ok(alugueis);
+        List<AluguelResumoDTO> response = alugueis.stream()
+            .map(AluguelResumoDTO::new)
+            .toList();
+            
+        return ResponseEntity.ok(response);
     }
 }
