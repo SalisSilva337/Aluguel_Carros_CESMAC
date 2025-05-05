@@ -24,6 +24,7 @@ document
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        
       },
       body: JSON.stringify(newUser), // Convertendo os dados do usuário para JSON
     };

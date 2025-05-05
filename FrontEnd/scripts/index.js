@@ -34,16 +34,16 @@ window.onload = function () {
 
 //Change Iframe Source
 homeButton.addEventListener("click", () => {
-  iframe.src = "../iframes/home.html";
+  iframe.src = "../FrontEnd/iframes/home.html";
 });
 rentCarButton.addEventListener("click", () => {
-  iframe.src = "../iframes/rental.html";
+  iframe.src = "../FrontEnd/iframes/rental.html";
 });
 aboutButton.addEventListener("click", () => {
-  iframe.src = "../iframes/about.html";
+  iframe.src = "../FrontEnd/iframes/about.html";
 });
 contactButton.addEventListener("click", () => {
-  iframe.src = "../iframes/contact.html";
+  iframe.src = "../FrontEnd/iframes/contact.html";
 });
 
 //Select bottomBorder in each button

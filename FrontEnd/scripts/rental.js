@@ -1,9 +1,9 @@
 let modal = document.querySelector(".modal");
 let registerCarModalButton = document.querySelector(".registerCarModalButton");
 let registerCarButton = document.querySelector(".registerCarButton");
-let inputCarName = document.querySelector(".inputCarName");
-let inputCarYear = document.querySelector(".inputCarYear");
-let inputCarPrice = document.querySelector(".inputCarPrice");
+let inputCarName = document.querySelector("#inputCarName");
+let inputCarYear = document.querySelector("#inputCarYear");
+let inputCarPrice = document.querySelector("#inputCarPrice");
 
 //open modal
 registerCarButton.addEventListener("click", () => {
@@ -32,7 +32,7 @@ registerCarModalButton.addEventListener("click", (event) => {
     ano: inputCarYear.value,
     precoPorDia: inputCarPrice.value,
     disponivel: true,
-    fotoCarro: inputImgCar.value,
+    fotoCarro: inputImgCar.value
   };
 
   console.log(JSON.stringify(addNewCarJSON));
@@ -41,6 +41,7 @@ registerCarModalButton.addEventListener("click", (event) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      
     },
     body: JSON.stringify(addNewCarJSON),
   };
