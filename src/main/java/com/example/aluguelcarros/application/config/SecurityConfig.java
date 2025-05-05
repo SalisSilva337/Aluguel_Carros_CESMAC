@@ -24,7 +24,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Configuração CORS
+            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Configuração da porcaria do CORS
             .authorizeHttpRequests(auth -> auth
                 // Rotas públicas
                 .requestMatchers(
@@ -47,7 +47,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "/alugueis/devolver/**").authenticated()
                 .requestMatchers(HttpMethod.GET, "/alugueis/usuario/**").authenticated()
                 
-                // Rotas administrativas
+                // Rotas dos adms do zap
                 .requestMatchers(HttpMethod.POST, "/carros").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/carros/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/carros/**").hasRole("ADMIN")
@@ -77,7 +77,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Front-end URL
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // url do front-end pro menino salis botar
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);

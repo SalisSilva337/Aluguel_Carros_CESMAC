@@ -62,7 +62,7 @@ public class AluguelService {
         aluguel.setDataFim(dataFim);
         aluguel.setValorTotal(valorTotal); // Setando o valor total calculado
     
-        // Marca o carro como indisponível
+        // Marca o carro como disponivel = false
         carro.setDisponivel(false);
         carroRepository.save(carro);
     
@@ -94,7 +94,7 @@ public class AluguelService {
         double total = dias * aluguel.getCarro().getPrecoPorDia();
         aluguel.setValorTotal(total);
 
-        aluguel.getCarro().setDisponivel(false); // Marca o carro como indisponível
+        aluguel.getCarro().setDisponivel(false); // Marca o carro como disponvel = false também
         return aluguelRepository.save(aluguel);
     }
 }

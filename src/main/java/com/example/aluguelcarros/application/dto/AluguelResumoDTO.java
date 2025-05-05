@@ -20,7 +20,6 @@ public class AluguelResumoDTO {
         this.carro = new CarroResumoDTO(aluguel.getCarro());
     }
 
-    // Getters
     public Long getId() {
         return id;
     }
@@ -41,7 +40,6 @@ public class AluguelResumoDTO {
         return carro;
     }
 
-    // Classe interna para o DTO do carro
     public static class CarroResumoDTO {
         private Long id;
         private String modelo;
@@ -53,7 +51,6 @@ public class AluguelResumoDTO {
             this.ano = carro.getAno();
         }
 
-        // Getters
         public Long getId() {
             return id;
         }

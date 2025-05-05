@@ -1,9 +1,11 @@
 package com.example.aluguelcarros.application.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 
 @Entity
 public class Carro {
@@ -15,6 +17,10 @@ public class Carro {
     private int ano;
     private double precoPorDia;
     private Boolean disponivel = true;
+
+    @Lob
+    @Column(nullable = false)
+    private String fotoCarro;
 
     public Carro() {}
 
@@ -59,5 +65,13 @@ public class Carro {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public String getFotoCarro() {
+        return fotoCarro;
+    }
+
+    public void setFotoCarro(String fotoCarro) {
+        this.fotoCarro = fotoCarro;
     }
 }

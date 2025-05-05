@@ -22,7 +22,7 @@ public class AluguelCarrosApplication {
                 Usuario admin = new Usuario();
                 admin.setNome("admin");
                 admin.setSenha(encoder.encode("admin123")); 
-                admin.setRole(Usuario.Role.ADMIN); // Use o enum corretamente
+                admin.setRole(Usuario.Role.ADMIN); // Use o enum corretamente, seu neandertal
                 repo.save(admin);
                 System.out.println("✅ Admin criado!");
             }

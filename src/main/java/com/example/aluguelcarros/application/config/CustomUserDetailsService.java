@@ -25,7 +25,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         
         return User.withUsername(usuario.getNome())
             .password(usuario.getSenha())
-            .roles(usuario.getRole().name()) // Aqui está a mágica - usa o enum do seu usuário!
+            .roles(usuario.getRole().name()) // Aqui o enum do azarado vai ser usado
             .build();
     }
 }

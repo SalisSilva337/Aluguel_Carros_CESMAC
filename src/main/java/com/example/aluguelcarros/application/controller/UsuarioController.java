@@ -56,7 +56,7 @@ public class UsuarioController {
                 .body(Map.of("erro", "Nome de usuário já existe"));
         }
 
-        // Garante role USER e senha hasheada
+        // Garante role USER e senha hasheada (criptografada)
         usuario.setRole(Role.USER);
         usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         
@@ -72,7 +72,7 @@ public class UsuarioController {
         );
     }
 
-    // Login com verificação segura
+    // Login com verificação segura (o pai é bom demais)
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Usuario usuario) {
         try {
