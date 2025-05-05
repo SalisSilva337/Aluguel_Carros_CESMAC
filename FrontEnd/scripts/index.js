@@ -8,6 +8,30 @@ let closeButton = document.querySelector("#closeButton");
 let sideBar = document.querySelector(".sideBar");
 let navBarButtons = document.querySelectorAll(".navBarButtons");
 
+window.onload = function () {
+  const token = localStorage.getItem("authToken");
+
+  if (token) {
+    try {
+      // Pega o payload do JWT (a parte do meio)
+      const payloadBase64 = token.split(".")[1];
+      const payloadDecoded = JSON.parse(atob(payloadBase64));
+
+      const nomeUsuario = payloadDecoded.sub || payloadDecoded.nome;
+
+      if (nomeUsuario) {
+        document.getElementById("userSideBarName").textContent = nomeUsuario;
+      } else {
+        console.warn("Nome de usuário não encontrado no token.");
+      }
+    } catch (error) {
+      console.error("Erro ao decodificar o token:", error);
+    }
+  } else {
+    console.warn("Token não encontrado no localStorage.");
+  }
+};
+
 //Change Iframe Source
 homeButton.addEventListener("click", () => {
   iframe.src = "../iframes/home.html";
@@ -47,13 +71,3 @@ closeButton.addEventListener("click", () => {
   sideBar.style.display = "none";
   sideBar.style.height = "0vh";
 });
-
-let options = [(method = "GET")];
-fetch("carros/todoscarros", options)
-  .then((response) => response.json())
-  .then((response) => {
-    for (let index = 0; index < response.length; index++) {
-      response.nome;
-      response.dataInicial;
-    }
-  });
