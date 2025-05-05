@@ -86,6 +86,15 @@ body {
   border-radius: 10px;
   padding: 10px;
 }
+#inputImgCar {
+  background-color: transparent; /* Fundo do input */
+  border: 1px solid white;
+  padding: 10px;
+  width: 300px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-weight: 400; /* Regular */
+}
 
 .inputsInfoCar {
   background-color: transparent; /* Fundo do input */
