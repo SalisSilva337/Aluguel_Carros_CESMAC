@@ -55,6 +55,10 @@ body {
 .grid img {
   width: 100%;
 }
+.imgGrid {
+  width: 310px;
+  height: 150px;
+}
 .rentCarButton {
   padding: 10px;
   border: 1px solid white;

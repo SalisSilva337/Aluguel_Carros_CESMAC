@@ -48,7 +48,7 @@ document
         // Se o login for bem-sucedido, armazena o token e redireciona
         if (data.token) {
           // Armazenando o token JWT (você pode usar localStorage, sessionStorage ou cookies)
-          localStorage.setItem("authToken", data.token);
+          sessionStorage.setItem("authToken", data.token);
           alert("Login bem-sucedido!");
           window.location.href = "index.html"; // Redireciona para a página inicial
         } else {

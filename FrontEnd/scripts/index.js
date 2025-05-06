@@ -9,7 +9,7 @@ let sideBar = document.querySelector(".sideBar");
 let navBarButtons = document.querySelectorAll(".navBarButtons");
 
 window.onload = function () {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
 
   if (token) {
     try {
