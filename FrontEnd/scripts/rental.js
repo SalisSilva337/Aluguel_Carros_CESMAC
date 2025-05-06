@@ -7,8 +7,20 @@ let inputCarPrice = document.querySelector("#inputCarPrice");
 let imgCar = document.querySelector("#imgCar");
 let inputImgCar = document.querySelector("#inputImgCar");
 let gridSection = document.querySelector(".gridSection");
+let rentCarButton = document.querySelector(".rentCarButton");
+const dateInputs = document.querySelectorAll('input[type="date"]');
+const today = new Date();
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth() + 1).padStart(2, "0"); // Mês começa em 0
+const dd = String(today.getDate()).padStart(2, "0");
+const currentDate = `${yyyy}-${mm}-${dd}`;
 
-const token = localStorage.getItem("authToken");
+//Filtrar da data atual pra f
+dateInputs.forEach((input) => {
+  input.min = currentDate;
+});
+
+const token = sessionStorage.getItem("authToken");
 
 //open modal
 registerCarButton.addEventListener("click", () => {
@@ -88,7 +100,7 @@ window.onload = function loadCars() {
         const carName = document.createElement("h3");
         carName.classList.add("carNameGrid");
         carName.textContent = data[index].modelo;
-
+        carName.value = data[index].id;
         // Cria o ano do carro
         const yearCar = document.createElement("span");
         yearCar.classList.add("yearCarGrid");
@@ -107,7 +119,8 @@ window.onload = function loadCars() {
         const inputDateStart = document.createElement("input");
         inputDateStart.classList.add("inputDateGrid");
         inputDateStart.type = "date";
-        inputDateStart.min = "2025-01-01";
+        inputDateStart.id = "inputDateStart";
+        inputDateStart.min = currentDate;
 
         // Cria a label para Data Final
         const dateEndLabel = document.createElement("span");
@@ -117,7 +130,8 @@ window.onload = function loadCars() {
         const inputDateEnd = document.createElement("input");
         inputDateEnd.classList.add("inputDateGrid");
         inputDateEnd.type = "date";
-        inputDateEnd.min = "2025-01-01";
+        inputDateEnd.id = "inputDateEnd";
+        inputDateEnd.min = currentDate;
 
         // Cria o botão de alugar
         const rentCarButton = document.createElement("button");
@@ -135,6 +149,43 @@ window.onload = function loadCars() {
         grid.appendChild(inputDateEnd);
         grid.appendChild(rentCarButton);
         gridSection.appendChild(grid);
+
+        rentCarButton.addEventListener("click", () => {
+          console.log(inputDateStart.value);
+
+          const token = sessionStorage.getItem("authToken");
+
+          const params = new URLSearchParams();
+          params.append("carroId", carName.value);
+          params.append("dataInicio", inputDateStart.value);
+          params.append("dataFim", inputDateEnd.value);
+          console.log(params);
+
+          fetch("http://localhost:8080/alugueis/alugar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Bearer ${token}`,
+            },
+            body: params,
+          })
+            .then((res) => {
+              if (!res.ok) {
+                return res.text().then((text) => {
+                  throw new Error(text);
+                });
+              }
+              return res.json();
+            })
+            .then((data) => {
+              alert("Carro alugado com sucesso!");
+              console.log(data);
+            })
+            .catch((err) => {
+              alert("Erro ao alugar: " + err.message);
+              console.error(err);
+            });
+        });
       }
     });
 };

@@ -207,3 +207,4 @@ public class AluguelController {
         return ResponseEntity.ok(response);
     }
 }
+
