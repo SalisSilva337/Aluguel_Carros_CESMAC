@@ -30,6 +30,14 @@ window.onload = function () {
           },
         };
 
+        const optionsPUT = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+
         fetch("http://localhost:8080/alugueis/meus-alugueis", optionsGET)
           .then((response) => response.json())
           .then((data) => {
@@ -50,7 +58,7 @@ window.onload = function () {
               const carImage = document.createElement("img");
               const carName = document.createElement("h3");
 
-              carImage.src = "../../uploads/" + aluguel.carro.fotoCarro;
+              // carImage.src = "../../uploads/" + aluguel.carro.fotoCarro;
               carName.textContent = aluguel.carro.modelo;
 
               eachCarInfoDiv.appendChild(carImage);
@@ -76,7 +84,26 @@ window.onload = function () {
               const returnButton = document.createElement("button");
               returnButton.textContent = "Devolver";
               returnButton.addEventListener("click", () => {
-                devolverAluguel(aluguel.id); // função que você pode implementar
+                fetch(
+                  "http://localhost:8080/alugueis/devolver/" + aluguel.id,
+                  optionsPUT
+                )
+                  .then((response) => {
+                    if (!response.ok) {
+                      return response.text().then((text) => {
+                        throw new Error("Erro: " + text);
+                      });
+                    }
+                    return response.json(); // AluguelResumoDTO retornado
+                  })
+                  .then((data) => {
+                    alert("Aluguel devolvido com sucesso!");
+                    eachCarDiv.remove(); // Remove do DOM
+                  })
+                  .catch((error) => {
+                    console.error("Erro ao devolver:", error);
+                    alert("Erro ao devolver aluguel: " + error.message);
+                  });
               });
               eachCarInfoDiv.appendChild(returnButton);
 
