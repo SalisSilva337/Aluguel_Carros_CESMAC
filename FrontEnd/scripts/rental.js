@@ -152,7 +152,7 @@ window.onload = function loadCars() {
 
         rentCarButton.addEventListener("click", () => {
           console.log(inputDateStart.value);
-
+          
           const token = sessionStorage.getItem("authToken");
 
           const params = new URLSearchParams();
@@ -180,6 +180,7 @@ window.onload = function loadCars() {
             .then((data) => {
               alert("Carro alugado com sucesso!");
               grid.remove();
+              window.top.location.reload();
               console.log(data);
             })
             .catch((err) => {

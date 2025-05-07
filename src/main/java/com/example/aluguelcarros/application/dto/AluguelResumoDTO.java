@@ -3,6 +3,10 @@ package com.example.aluguelcarros.application.dto;
 import java.time.LocalDate;
 
 import com.example.aluguelcarros.application.model.Carro;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Lob;
+
 import com.example.aluguelcarros.application.model.Aluguel;
 
 public class AluguelResumoDTO {
@@ -51,10 +55,15 @@ public class AluguelResumoDTO {
         private String modelo;
         private Integer ano;
 
+        @Lob
+        @Column(nullable = false)
+        private String fotoCarro;
+
         public CarroResumoDTO(Carro carro) {
             this.id = carro.getId();
             this.modelo = carro.getModelo();
             this.ano = carro.getAno();
+            this.fotoCarro = carro.getFotoCarro();
         }
 
         public Long getId() {
@@ -67,6 +76,10 @@ public class AluguelResumoDTO {
 
         public Integer getAno() {
             return ano;
+        }
+
+        public String getFotoCarro() {
+            return fotoCarro;
         }
     }
 }

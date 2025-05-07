@@ -58,7 +58,7 @@ window.onload = function () {
               const carImage = document.createElement("img");
               const carName = document.createElement("h3");
 
-              // carImage.src = "../../uploads/" + aluguel.carro.fotoCarro;
+              carImage.src = "../../uploads/" + aluguel.carro.fotoCarro;
               carName.textContent = aluguel.carro.modelo;
 
               eachCarInfoDiv.appendChild(carImage);
@@ -97,8 +97,9 @@ window.onload = function () {
                     return response.json(); // AluguelResumoDTO retornado
                   })
                   .then((data) => {
-                    alert("Aluguel devolvido com sucesso!");
                     eachCarDiv.remove(); // Remove do DOM
+                    alert("Aluguel devolvido com sucesso!");
+                    
                   })
                   .catch((error) => {
                     console.error("Erro ao devolver:", error);
