@@ -179,6 +179,7 @@ window.onload = function loadCars() {
             })
             .then((data) => {
               alert("Carro alugado com sucesso!");
+              grid.remove();
               console.log(data);
             })
             .catch((err) => {
