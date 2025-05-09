@@ -1,3 +1,14 @@
+let buttonRegisterAccount = document.querySelector("#buttonRegisterAccount");
+let inputPassword = document.querySelector("#inputPassword");
+
+inputPassword.addEventListener("input", () => {
+  if (inputPassword.value.length < 6) {
+    buttonRegisterAccount.disabled = true;
+  } else {
+    buttonRegisterAccount.disabled = false;
+  }
+});
+
 document
   .getElementById("buttonRegisterAccount")
   .addEventListener("click", function (event) {
@@ -24,7 +35,6 @@ document
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        
       },
       body: JSON.stringify(newUser), // Convertendo os dados do usuário para JSON
     };

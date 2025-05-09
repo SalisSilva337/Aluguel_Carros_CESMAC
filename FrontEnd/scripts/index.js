@@ -8,6 +8,7 @@ let closeButton = document.querySelector("#closeButton");
 let sideBar = document.querySelector(".sideBar");
 let navBarButtons = document.querySelectorAll(".navBarButtons");
 let gridRentedCars = document.querySelector(".gridRentedCars");
+let registerHyperlink = document.querySelector("#registerHyperlink");
 window.onload = function () {
   const token = sessionStorage.getItem("authToken");
 
@@ -20,6 +21,7 @@ window.onload = function () {
       const nomeUsuario = payloadDecoded.sub || payloadDecoded.nome;
 
       if (nomeUsuario) {
+        registerHyperlink.textContent = "Trocar De Conta";
         document.getElementById("userSideBarName").textContent = nomeUsuario;
 
         const optionsGET = {
@@ -99,7 +101,6 @@ window.onload = function () {
                   .then((data) => {
                     eachCarDiv.remove(); // Remove do DOM
                     alert("Aluguel devolvido com sucesso!");
-                    
                   })
                   .catch((error) => {
                     console.error("Erro ao devolver:", error);
