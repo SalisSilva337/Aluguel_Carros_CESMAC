@@ -9,6 +9,8 @@ let sideBar = document.querySelector(".sideBar");
 let navBarButtons = document.querySelectorAll(".navBarButtons");
 let gridRentedCars = document.querySelector(".gridRentedCars");
 let registerHyperlink = document.querySelector("#registerHyperlink");
+
+let isRented = false;
 window.onload = function () {
   const token = sessionStorage.getItem("authToken");
 
@@ -84,7 +86,13 @@ window.onload = function () {
 
               // Botão de devolução
               const returnButton = document.createElement("button");
-              returnButton.textContent = "Devolver";
+              if (aluguel.devolvido) {
+                returnButton.textContent = "Devolvido";
+                returnButton.disabled = true;
+              } else {
+                returnButton.textContent = "Devolver";
+                returnButton.disabled = false;
+              }
               returnButton.addEventListener("click", () => {
                 fetch(
                   "http://localhost:8080/alugueis/devolver/" + aluguel.id,
@@ -99,7 +107,9 @@ window.onload = function () {
                     return response.json(); // AluguelResumoDTO retornado
                   })
                   .then((data) => {
-                    eachCarDiv.remove(); // Remove do DOM
+                    isRented = true;
+                    returnButton.disabled = true;
+                    returnButton.textContent = "Devolvido";
                     alert("Aluguel devolvido com sucesso!");
                   })
                   .catch((error) => {
@@ -118,7 +128,6 @@ window.onload = function () {
             console.error("Erro ao carregar os aluguéis:", error);
           });
 
-        // Exemplo de função para devolver (você pode ajustar conforme seu backend)
         function devolverAluguel(id) {
           fetch(`http://localhost:8080/alugueis/${id}/devolver`, {
             method: "PUT", // ou DELETE/POST conforme o seu backend

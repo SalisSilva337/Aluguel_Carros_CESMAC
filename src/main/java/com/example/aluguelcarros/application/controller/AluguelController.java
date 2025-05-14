@@ -171,6 +171,7 @@ public class AluguelController {
         long dias = Math.max(1, ChronoUnit.DAYS.between(aluguel.getDataInicio(), aluguel.getDataFim()));
         aluguel.setValorTotal(carro.getPrecoPorDia() * dias);
         carro.setDisponivel(true);
+        aluguel.setDevolvido(true);
 
         return ResponseEntity.ok(new AluguelResumoDTO(aluguel));
     }

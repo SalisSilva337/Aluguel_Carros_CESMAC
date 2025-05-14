@@ -15,6 +15,11 @@ public class Aluguel {
 
     private Double valorTotal;
 
+    @Column(nullable = false)
+    private boolean devolvido = false;
+
+   
+
     @ManyToOne
     private Usuario usuario;
 
@@ -39,4 +44,7 @@ public class Aluguel {
 
     public Carro getCarro() { return carro; }
     public void setCarro(Carro carro) { this.carro = carro; }
+
+    public boolean getDevolvido() {return devolvido; }
+    public void setDevolvido(boolean devolvido) { this.devolvido = devolvido; }
 }

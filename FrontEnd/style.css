@@ -134,3 +134,6 @@ html {
   border: 1px solid white;
   transition: 0.3s;
 }
+.eachCarInfoDiv button:disabled {
+  background-color: gray;
+}

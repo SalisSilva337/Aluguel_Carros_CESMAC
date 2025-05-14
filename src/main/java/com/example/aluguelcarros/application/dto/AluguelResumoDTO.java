@@ -16,6 +16,7 @@ public class AluguelResumoDTO {
     private Double valorTotal;
     private UsuarioDTO usuario;
     private CarroResumoDTO carro;
+    private boolean devolvido;
 
     public AluguelResumoDTO(Aluguel aluguel) {
         this.id = aluguel.getId();
@@ -24,8 +25,12 @@ public class AluguelResumoDTO {
         this.valorTotal = aluguel.getValorTotal();
         this.usuario = new UsuarioDTO(aluguel.getUsuario());
         this.carro = new CarroResumoDTO(aluguel.getCarro());
+        this.devolvido = aluguel.getDevolvido();
     }
 
+    public boolean getDevolvido() {
+        return devolvido;
+    }
     public Long getId() {
         return id;
     }
