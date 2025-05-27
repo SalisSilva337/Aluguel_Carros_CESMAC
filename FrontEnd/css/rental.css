@@ -57,7 +57,8 @@ body {
 }
 .imgGrid {
   width: 310px;
-  height: 150px;
+  height: 200px;
+  border-radius: 10px;
 }
 .rentCarButton {
   padding: 10px;

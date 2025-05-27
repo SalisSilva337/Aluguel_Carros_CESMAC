@@ -36,7 +36,7 @@ public class CarroController {
 
         String nomeArquivo = fileStorageService.saveFile(fotoCarro); // Salva a imagem
 
-        Carro carro = new Carro(modelo, ano, precoPorDia, disponivel);
+        Carro carro = new Carro(modelo, ano, precoPorDia, disponivel, nomeArquivo);
         carro.setFotoCarro(nomeArquivo); // Usa o novo nome do campo
 
         return ResponseEntity.ok(carroService.cadastrarCarro(carro));

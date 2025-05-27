@@ -24,11 +24,12 @@ public class Carro {
 
     public Carro() {}
 
-    public Carro(String modelo, int ano, double precoPorDia, boolean disponivel) {
+    public Carro(String modelo, int ano, double precoPorDia, boolean disponivel, String fotoCarro) {
         this.modelo = modelo;
         this.ano = ano;
         this.precoPorDia = precoPorDia;
         this.disponivel = disponivel;
+        this.fotoCarro = fotoCarro;
     }
 
     public Long getId() {
