@@ -10,6 +10,8 @@ O objetivo principal é unir mobilidade, praticidade e luxo, garantindo que o cl
 
 🔹 Usuário
 
+<img width="1912" height="900" alt="image" src="https://github.com/user-attachments/assets/799f68c6-65cd-4ca4-aeaf-07dd9d9efdf6" />
+
 Cadastro e login (com autenticação segura).
 
 Visualização da frota de veículos disponíveis.
@@ -19,9 +21,6 @@ Sistema de reservas online.
 Histórico de reservas.
 
 Gerenciamento de perfil e informações pessoais.
-
-<img width="1912" height="900" alt="image" src="https://github.com/user-attachments/assets/799f68c6-65cd-4ca4-aeaf-07dd9d9efdf6" />
-
 
 🔹 Administrador
 
