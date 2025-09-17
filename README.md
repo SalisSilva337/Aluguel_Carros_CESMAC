@@ -1,4 +1,5 @@
 <img width="1847" height="880" alt="image" src="https://github.com/user-attachments/assets/56dc4823-56c9-4b15-9871-74fae9dfad0a" />
+
 📌 1. Visão Geral
 
 O Auron Celeris é um sistema de aluguel de carros premium online que proporciona ao usuário uma experiência digital moderna, prática e intuitiva. O sistema oferece uma plataforma responsiva e integrada para que clientes possam visualizar veículos, realizar reservas, 
