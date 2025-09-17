@@ -7,6 +7,8 @@ efetuar pagamentos e gerenciar seu perfil de forma totalmente online.
 
 O objetivo principal é unir mobilidade, praticidade e luxo, garantindo que o cliente tenha acesso rápido e confiável a veículos de alto padrão.
 
+##
+
 📌 2. Funcionalidades Principais
 
 🔹 Usuário
@@ -42,6 +44,8 @@ Carros icônicos (modelos premium e esportivos).
 Foco em luxo & conforto.
 
 Design responsivo e moderno.
+
+##
 
 📌 3. Arquitetura do Sistema
 
@@ -85,6 +89,8 @@ Reservas
 
 Pagamentos
 
+##
+
 📌 4. Fluxo do Usuário
 
 Usuário acessa o site.
@@ -103,6 +109,8 @@ Admin recebe notificação e valida a disponibilidade.
 
 Usuário retira o veículo no local indicado.
 
+##
+
 📌 5. Telas do Sistema (Baseado no design enviado)
 
 Home (Início): destaque para um carro premium, botão de alugar agora, slogans como “Experiencie o Futuro da Mobilidade”.
@@ -112,6 +120,8 @@ Página de Aluguel: listagem dos veículos disponíveis, filtros e botão “Res
 Perfil: dados do usuário, histórico de reservas e informações de pagamento.
 
 Admin (Painel de Controle): gestão de frota, usuários e relatórios.
+
+##
 
 📌 6. Público-Alvo
 
