@@ -20,6 +20,9 @@ Histórico de reservas.
 
 Gerenciamento de perfil e informações pessoais.
 
+<img width="1912" height="900" alt="image" src="https://github.com/user-attachments/assets/799f68c6-65cd-4ca4-aeaf-07dd9d9efdf6" />
+
+
 🔹 Administrador
 
 Cadastro e gerenciamento da frota (modelo, ano, categoria, preço/dia, disponibilidade).
