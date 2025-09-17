@@ -13,8 +13,6 @@ O objetivo principal é unir mobilidade, praticidade e luxo, garantindo que o cl
 
 📌 2. Funcionalidades Principais
 
-##
-
 <img width="1912" height="900" alt="image" src="https://github.com/user-attachments/assets/799f68c6-65cd-4ca4-aeaf-07dd9d9efdf6" />
 
 ##
